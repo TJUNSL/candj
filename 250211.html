@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>250211</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><blockquote><p><span>Update: 2025年02月11日</span></p></blockquote><h2 id='近期会议'><span>近期会议</span></h2><figure class='table-figure'><table><thead><tr><th style='text-align:center;' ><span>会议</span></th><th style='text-align:center;' ><span>类型</span></th><th style='text-align:center;' ><span>CCF</span></th><th style='text-align:center;' ><span>截止时间</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><a href='https://crypto.iacr.org/2025/'><span>CRYPTO2025</span></a></td><td style='text-align:center;' ><strong><span>网络与信息安全</span></strong></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-02-13 23:59:59 (02 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://2025.aclweb.org/'><span>ACL2025</span></a></td><td style='text-align:center;' ><span>人工智能</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-02-15 23:59:59 (04 days)</span></td></tr><tr><td style='text-align:center;' ><a href='http://www.vldb.org/2025/'><span>VLDB2025</span></a></td><td style='text-align:center;' ><span>数据库/数据挖掘/内容检索</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-03-01 17:00:00 (18 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://iccv.thecvf.com/Conferences/2025'><span>ICCV2025</span></a></td><td style='text-align:center;' ><span>人工智能</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-03-07 07:59:59 (24 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://conf.researchr.org/home/icse-2026'><span>ICSE2026</span></a></td><td style='text-align:center;' ><span>软件工程/系统软件/程序设计语言</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-03-14 23:59:59 (32 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://sigmobile.org/mobicom/2025/'><span>MobiCom2025</span></a></td><td style='text-align:center;' ><span>计算机网络</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-03-18 23:59:59 (35 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://www.usenix.net/conference/fast26'><span>FAST2026</span></a></td><td style='text-align:center;' ><span>计算机体系结构/并行与分布计算/存储系统</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-03-18 23:59:00 (36 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://2025.splashcon.org/track/OOPSLA'><span>OOPSLA2025</span></a></td><td style='text-align:center;' ><span>软件工程/系统软件/程序设计语言</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-03-25 07:59:59 (42 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://ieeevis.org/year/2025/welcome'><span>IEEE VIS2025</span></a></td><td style='text-align:center;' ><span>计算机图形学与多媒体</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-03-31 23:59:59 (49 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://uist.acm.org/2025/'><span>UIST2025</span></a></td><td style='text-align:center;' ><span>人机交互与普适计算</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-04-02 17:00:00 (50 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://2025.acmmm.org/'><span>ACM MM2025</span></a></td><td style='text-align:center;' ><span>计算机图形学与多媒体</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-04-11 23:59:59 (59 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://www.sigsac.org/ccs/CCS2025/'><span>CCS2025</span></a></td><td style='text-align:center;' ><strong><span>网络与信息安全</span></strong></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-04-14 23:59:59 (62 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://sc25.supercomputing.org/'><span>SC2025</span></a></td><td style='text-align:center;' ><span>计算机体系结构/并行与分布计算/存储系统</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-04-14 23:59:00 (63 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://ches.iacr.org/2025/'><span>CHES2025</span></a></td><td style='text-align:center;' ><strong><span>网络与信息安全</span></strong></td><td style='text-align:center;' ><span>B</span></td><td style='text-align:center;' ><span>2025-04-15 23:59:59 (64 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://sigops.org/s/conferences/sosp/2025/index.html'><span>SOSP2025</span></a></td><td style='text-align:center;' ><span>软件工程/系统软件/程序设计语言</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-04-17 23:59:59 (65 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://2026.sigmod.org/'><span>SIGMOD2026</span></a></td><td style='text-align:center;' ><span>数据库/数据挖掘/内容检索</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-04-17 23:59:00 (66 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://esorics2025.sciencesconf.org/'><span>ESORICS2025</span></a></td><td style='text-align:center;' ><strong><span>网络与信息安全</span></strong></td><td style='text-align:center;' ><span>B</span></td><td style='text-align:center;' ><span>2025-04-22 23:59:59 (71 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://www.ubicomp.org/ubicomp-iswc-2025'><span>UbiComp/ISWC2025</span></a></td><td style='text-align:center;' ><span>人机交互与普适计算</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-05-01 23:59:59 (80 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://2026.eurosys.org/'><span>EuroSys2026</span></a></td><td style='text-align:center;' ><span>计算机体系结构/并行与分布计算/存储系统</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-05-15 23:59:59 (94 days)</span></td></tr><tr><td style='text-align:center;' ><a href='https://conf.researchr.org/home/ase-2025'><span>ASE2025</span></a></td><td style='text-align:center;' ><span>软件工程/系统软件/程序设计语言</span></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-05-30 23:59:59 (03 months)</span></td></tr><tr><td style='text-align:center;' ><a href='https://www.ieee-security.org/TC/SP2026/'><span>S&amp;P2026</span></a></td><td style='text-align:center;' ><strong><span>网络与信息安全</span></strong></td><td style='text-align:center;' ><span>A</span></td><td style='text-align:center;' ><span>2025-06-05 23:59:59 (03 months)</span></td></tr></tbody></table></figure><p><a href='https://ccf.tjunsl.com/ddl.html'><span> &gt;&gt; 更多会议</span></a></p><h2 id='journal-special-issues'><span>Journal Special Issues</span></h2><h3 id='ccf推荐中文及安全相关期刊'><span>CCF推荐中文及安全相关期刊</span></h3><ul><li><p><strong><span>软件学报</span></strong><span> CCF-A</span></p><ul><li><p><a href='https://www.jos.org.cn/jos/news/view/20250206123622001'><span>多媒体智能理解与生成</span></a><span> 截稿时间：2025年5月26日</span></p></li><li><p><a href='https://www.jos.org.cn/jos/news/view/20241101091459001'><span>高可信自适应机器学习</span></a><span> 截稿时间：2025年5月12日</span></p></li><li><p><a href='https://www.jos.org.cn/jos/news/view/20250210113108001'><span>向量数据库及DB4LLM技术</span></a><span> 截稿时间：2025年5月6日</span></p></li></ul></li><li><p><strong><span>Computers &amp; Security</span></strong><span> CCF-B</span></p><ul><li><p><a href='https://www.sciencedirect.com/special-issue/314345/security-and-regulation-cybersecurity-privacy-and-trust-protecting-information-and-ensuring-responsible-technology-use'><span>Security and Regulation: Cybersecurity, Privacy, and Trust- Protecting information and ensuring responsible technology use</span></a><span> Submission deadline: 01 May 2025</span></p></li></ul></li></ul><h3 id='其他期刊'><span>其他期刊</span></h3><ul><li><p><strong><span>IEEE Journal on Selected Areas in Communications</span></strong><span> 1区 / IF 13.8</span></p><ul><li><p><a href='https://www.comsoc.org/publications/journals/ieee-jsac/cfp/key-technologies-towards-standardization-6g-and-nextg'><span>Key Technologies Towards Standardization of 6G and NextG</span></a><span> Manuscript Submission Deadline 15 May 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/journals/ieee-jsac/cfp/large-ai-model-future-wireless-communication-systems'><span>Large AI Model for Future Wireless Communication Systems</span></a><span> Manuscript Submission Deadline 1 May 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/journals/ieee-jsac/cfp/private-and-covert-communications-fundamentals-methods-and'><span>Private and Covert Communications: Fundamentals, Methods, and Applications </span></a><span>Manuscript Submission Deadline 15 April 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/journals/ieee-jsac/cfp/fluid-antenna-system-and-other-next-generation-reconfigurable'><span>Fluid Antenna System and Other Next-Generation Reconfigurable Antenna Systems for Wireless Communications</span></a><span> Manuscript Submission Deadline 15 February 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/journals/ieee-jsac/cfp/recent-advances-integrated-sensing-and-communications'><span>Recent Advances in Integrated Sensing and Communications</span></a><span> Manuscript Submission Deadline 14 February 2025</span></p></li></ul></li><li><p><strong><span>IEEE Wireless Communications</span></strong><span> 1区 / IF 10.9</span></p><ul><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-wireless-communications/cfp/multi-satellite-collaborative'><span>Multi-Satellite Collaborative Communications and Networking for Future Global Satellite Internet</span></a><span> Manuscript Submission Deadline  1 August 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-wireless-communications/cfp/movable-and-reconfigurable-antennas'><span>Movable and Reconfigurable Antennas-Empowered Wireless Networks </span></a><span>Manuscript Submission Deadline  1 August 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-wireless-communications/cfp/toward-practical-low-altitude-economy'><span>Toward Practical Low-Altitude Economy Networking: Standardization, Testbeds, and Real-world Deployments</span></a><span> Manuscript Submission Deadline 1 June 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-wireless-communications/cfp/6g-local-area-networks'><span>6G Local Area Networks</span></a><span> Manuscript Submission Deadline 15 February 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-wireless-communications/cfp/wireless-innovations-leveraging-semantic'><span>Wireless Innovations: Leveraging Semantic Communication Technologies</span></a><span> Manuscript Submission Deadline 15 February 2025</span></p></li></ul></li><li><p><strong><span>IEEE Internet of Things Journal</span></strong><span> 1区 / IF 8.2</span></p><ul><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/05/3EAI_Non_Terrestrial_New.pdf'><span>Efficient, Effective, and Explicable Artificial Intelligence Inspired IoT over Non-Terrestrial Networks</span></a><span> Submission Deadline: June 1st, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Vehicle_Road_Cooperation_New.pdf'><span>Augmented Intelligence of Things for Vehicle Road Cooperation Systems</span></a><span> Submission Deadline: June 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/05/Low-Carbon_Sustainable_New.pdf'><span>Low-Carbon Sustainable Computing Enabled Artificial Intelligence of Things</span></a><span> Submission Deadline: August 1st, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/02/Graph_Powered_Computing.pdf'><span>Graph-Powered Intelligent Computing for the Internet of Everything</span></a><span> Submission Deadline: August 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/02/Distributed_Edge_Intelligence.pdf'><span>Distributed Edge Intelligence empowered Internet-of-Vehicles</span></a><span> Submission Deadline: August 31st, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/02/Security_Privacy_Vehicles.pdf'><span>Security and Privacy of Intelligent Vehicles</span></a><span> Submission Deadline: September 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/07/Large_Language_Models.pdf'><span>Large Language Models for Intelligent Network Operation and Optimization in the Internet of Things</span></a><span> Submission Deadline: September 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/03/UAV_Networks_IoT.pdf'><span>UAV Networks for Internet of Things </span></a><span> Submission Deadline: September 30th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/04/Integrating_Cognitive.pdf'><span>Integrating Cognitive IoT Sensors with UAVs in Aerial Computing – Next Generation Industrial Systems </span></a><span> Submission Deadline: October 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/10/Extension-Integration-of-Generative-AI-and-Internet-of-Things.pdf'><span>Integration of Generative AI and Internet of Things </span></a><span> Submission Deadline: November 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/05/Collaborative_Intelligence_Meta.pdf'><span>Collaborative Intelligence via Meta-Computing in the Industrial Internet of Things </span></a><span> Submission Deadline: November 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2025/01/6G_Near_Field_Updated.pdf'><span>6G Near-Field Technologies for The Internet of Things </span></a><span> Submission Deadline: December 30th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2025/01/Near_Field_Communications_Updated.pdf'><span>Near-Field Communications (NFC) in Internet-of-Everything </span></a><span> Submission Deadline: January 1st, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2025/01/Positioning_Sensing_Near_Field_Updated.pdf'><span>Positioning and Sensing for Near Field (NF)-driven Internet-of-Everything </span></a><span> Submission Deadline: January 15th, 2024</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Digital_Twin_6G.pdf'><span>Digital Twin for 6G Internet of Everything </span></a><span> Submission Deadline: January 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Human_Machine_Interaction.pdf'><span>Human Machine Interaction in Industrial IoT Flexible Manufacturing with Advanced AI Tools: Emerging Application and Challenges</span></a><span> Submission Deadline: January 31st, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Carbon_Intelligent_Industrial.pdf'><span>Carbon Intelligent Industrial Internet of Things </span></a><span> Submission Deadline: February 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Edge_AI_Models.pdf'><span>Edge AI Models for Social Internet of Things </span></a><span> Submission Deadline: February 28th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Responsible_Federated_Foundation.pdf'><span>Responsible and Federated Foundation Models for IIoT </span></a><span> Submission Deadline: March 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/AIoT_Secured_Green.pdf'><span>AIoT-enabled Secured and Green Supply Chain Systems: Challenges &amp; Opportunities </span></a><span> Submission Deadline: March 31st, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/07/Security_Privacy_Large.pdf'><span>Security and Privacy in Large Language Models for Internet of Things (IoT) </span></a><span> Submission Deadline: April 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Symbiotic_IoT_Giant.pdf'><span>Symbiotic Internet-of-Things for Giant AI in the 6G Era </span></a><span> Submission Deadline: April 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Data_Knowledge_Empowered.pdf'><span>Data and Knowledge-Empowered Distributed Learning for Internet of Unmanned Agents </span></a><span> Submission Deadline: April 30th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/07/UltraReliable_LowLatency_Satellite.pdf'><span>Ultra-Reliable and Low-Latency Satellite Communications for Ubiquitous Internet of Everything (IoE) </span></a><span> Submission Deadline: April 30th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/06/Intelligent_Sustainable_Agriculture.pdf'><span>Intelligent IoT for Sustainable Agriculture and Food Industries </span></a><span> Submission Deadline: May 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/09/Integrated_Transmissions_Computations.pdf'><span>Integrated Transmissions and Computations for Non-Terrestrial Network-Assisted Internet of Things </span></a><span> Submission Deadline: May 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/07/Challenges_Opportunities_Healthcare.pdf'><span>Challenges and Opportunities of IoT-based Healthcare Industry 5.0 </span></a><span> Submission Deadline: May 31st, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2025/01/Augmented_Edge_Sensing.pdf'><span>Augmented Edge Sensing Intelligence for Low-Altitude IoT Systems </span></a><span> Submission Deadline: June 15th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2025/01/Responsible_Trustworthy_AI.pdf'><span>Responsible and Trustworthy AI for 6G Internet of Things (6G-IoT)</span></a><span> Submission Deadline: June 30th, 2025</span></p></li><li><p><a href='https://ieee-iotj.org/wp-content/uploads/2024/12/Intent_Networking_AI.pdf'><span>Intent-based Networking for AI powered IoT Communications </span></a><span> Submission Deadline: July 15th, 2025</span></p></li></ul></li><li><p><strong><span>IEEE Transactions on Cognitive Communications and Networking</span></strong><span> 1区 / IF 7.4</span></p><ul><li><p><a href='https://www.comsoc.org/publications/journals/ieee-tccn/cfp/artificial-general-intelligence-low-altitude-economy-networking'><span>Artificial General Intelligence for Low-Altitude Economy Networking</span></a><span> Manuscript Submission Deadline 1 June 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/journals/ieee-tccn/cfp/machine-learning-and-intelligent-signal-processing-near-field'><span>Machine Learning and Intelligent Signal Processing for Near-Field Technologies</span></a><span> Manuscript Submission Deadline 1 March 2025</span></p></li></ul></li><li><p><strong><span>IEEE Transactions on Affective Computing</span></strong><span>  2区 / IF 9.6</span></p><ul><li><p><a href='https://www.computer.org/digital-library/journals/ta/tac-next-generation-health'><span>Call for Papers: Special Issue on the Affective Impact of Next-Generation Intelligent Health Systems</span></a><span> Submissions Due: 31 March 2025</span></p></li></ul></li><li><p><strong><span>IEEE Communications Magazine</span></strong><span> 2区 / IF 8.3</span></p><ul><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-communications-magazine/cfp/direct-satellite-device-communications'><span>Direct Satellite-to-Device Communications: Technologies, Connectivity, and Spectrum Management</span></a><span> Manuscript Submission Deadline 1 March 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-communications-magazine/cfp/advanced-artificial-intelligence-zero-touch'><span>Advanced Artificial Intelligence for Zero Touch Service Management Networks</span></a><span> Manuscript Submission Deadline 28 February 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-communications-magazine/cfp/advances-communication-public-safety'><span>Advances in Communication in Public Safety Technologies</span></a><span> Manuscript Submission Deadline 15 February 2025</span></p></li></ul></li><li><p><strong><span>IEEE Network</span></strong><span> 2区 / IF 6.8</span></p><ul><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-network/cfp/cybersecurity-issues-and-challenges-internet-energy-ioe'><span>Cybersecurity Issues and Challenges in Internet of Energy (IoE)</span></a><span> Manuscript Submission Deadline 1 July 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-network/cfp/near-field-communications-challenges-and-opportunities'><span>Near-Field Communications: Challenges and Opportunities in the Networking Landscape</span></a><span> Manuscript Submission Deadline 30 June 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/magazines/ieee-network/cfp/generative-ai-secure-communications-and-networking'><span>Generative AI for Secure Communications and Networking</span></a><span> Manuscript Submission Deadline 15 February 2025</span></p></li></ul></li><li><p><strong><span>IEEE Transactions on Network Science and Engineering</span></strong><span> 2区 / IF 6.7</span></p><ul><li><p><a href='https://www.comsoc.org/publications/journals/ieee-tnse/cfp/intelligent-flexible-position-antenna-systems-networking'><span>Intelligent Flexible Position Antenna Systems for Networking</span></a><span> Manuscript Submission Deadline 1 July 2025</span></p></li><li><p><a href='https://www.comsoc.org/publications/journals/ieee-tnse/cfp/integrating-generative-ai-mobile-networking'><span>Integrating Generative AI into Mobile Networking</span></a><span> Manuscript Submission Deadline 1 June 2025</span></p></li></ul></li><li><p><strong><span>IEEE Transactions on Services Computing</span></strong><span>  2区 / IF 5.5</span></p><ul><li><p><a href='https://www.computer.org/digital-library/journals/tsc/cfp-metaverse'><span>Call for Papers: Special Issue on Metaverse Services</span></a><span> Submissions Due: 31 March 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/journals/tsc/cfp-generative-ai-vision-language-models'><span>Call for Papers: Special Issue on Generative AI and Large Vision and Language Models in Service Computing</span></a><span> Submissions Due: 15 August 2025</span></p></li></ul></li><li><p><strong><span>IEEE Micro</span></strong><span> 3区 / IF 2.8</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/mi/cfp-data-centric-computing'><span>Call for Papers: Data-Centric Computing</span></a><span> Submissions Due: 27 February 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/magazines/mi/cfp-contemporary-products'><span>Call for Papers: Contemporary Industry Products</span></a><span> Submissions Due: 13 March 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/magazines/mi/cfp-ai-hardware'><span>Call for Papers: AI for Hardware and Hardware for AI</span></a><span> Submissions Due: 25 April 2025</span></p></li></ul></li><li><p><strong><span>IEEE Annals of the History of Computing</span></strong><span> 3区 / IF 0.5</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/an/cfp-special-proposal-on-computing-and-the-built-environment'><span>Call for Papers: Special Issue on Computing and the Built Environment</span></a><span> Submissions Due: 11 November 2025</span></p></li></ul></li><li><p><strong><span>IEEE Internet Computing</span></strong><span>  4区 / IF 3.7</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/ic/cfp-humans-meet-ai'><span>Call for Papers: Special Issue on Humans Meet AI</span></a><span> Submissions Due: 1 March 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/magazines/ic/cfp-programming-flexible-systems'><span>Call for Papers: Special Issue on Special Issue on Programming Flexible Distributed Systems for the Internet Era</span></a><span> Submissions Due: 15 March 2025</span></p></li></ul></li><li><p><strong><span>IEEE Software</span></strong><span> 4区 / IF 3.3</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/so/cfp-green-clean-software-sustainability'><span>Call for Papers: Special Issue on Green Clean Software Sustainability</span></a><span> Submissions Due: 1 April 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/magazines/so/cfp-aiware-fm-era'><span>Call for Papers: Special Issue on AIware in the FM Era</span></a><span> Submissions Due: 9 April 2025</span></p></li></ul></li><li><p><strong><span>IEEE Security &amp; Privacy</span></strong><span> 4区 / IF 2.9</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/sp/cfp-security-privacy-generative-ai'><span>Call For Papers: Special Issue on Security and Privacy of Generative AI</span></a><span> Submissions Due: 13 February 2025</span></p></li></ul></li><li><p><strong><span>IT Professional</span></strong><span>  4区 / IF 2.2</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/it/cfp-transform-ai-africa'><span>Call for Papers: Special Issue on Transformational Artificial Intelligence in the Middle East and Africa</span></a><span> Submissions Due: 1 March 2025</span></p></li></ul></li><li><p><strong><span>Computer</span></strong><span> 4区 / IF 2</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/co/cfp-tech-predictions-2025'><span>Call for Papers: Special Issue on Tech Predictions 2025</span></a><span> Submissions Due: 1 March 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/magazines/co/cfp-ai-failures-prevention-vol-2'><span>Call for Papers: Special Issue AI Failures: Causes, Implications, and Prevention, Vol 2</span></a><span>  Submissions Due: 17 March 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/magazines/co/cfp-res-sustain-smart'><span>Call for Papers: Special Issue on Resilient and Sustainable Smart Communities</span></a><span> Submissions Due: 31 March 2025</span></p></li></ul></li><li><p><strong><span>IEEE Computer Graphics and Applications</span></strong><span> 4区 / IF 1.7</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/cg/cfp-biological-data-visualization'><span>Call for Papers: Special Issue on Breakthroughs, Challenges, and Opportunities in Biological Data Visualization</span></a><span> Submissions Due: 21 February 2025</span></p></li><li><p><a href='https://www.computer.org/digital-library/magazines/cg/cfp-human-ai-graphics-visual'><span>Call For Papers: Special Issue on Human-AI Interaction for Graphics and Visualization</span></a><span> Submissions Due: 24 April 2025</span></p></li></ul></li><li><p><strong><span>IEEE Pervasive Computing</span></strong><span>  4区 / IF 1.6</span></p><ul><li><p><a href='https://www.computer.org/digital-library/magazines/pvc/cfp-design-engage'><span>Call for Papers: Special Issue on Designing for Self-Determined Engagement with Pervasive Technology</span></a><span> Submissions Due: 31 March 2025</span></p></li></ul></li></ul><h2 id='重点关注期刊'><span>重点关注期刊</span></h2><h3 id='网络与信息安全-a类'><span>网络与信息安全 A类</span></h3><p><a href='https://www.computer.org/csdl/journal/tq'><strong><span>IEEE Transactions on Dependable and Secure Computing</span></strong></a><span> </span><strong><span>:</span></strong><span> </span><a href='https://www.computer.org/publications/author-resources/calls-for-papers'><span>Special Issues Select</span></a></p><p><a href='https://signalprocessingsociety.org/publications-resources/ieee-transactions-information-forensics-and-security'><strong><span>IEEE Transactions on Information Forensics and Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://signalprocessingsociety.org/publications-resources/special-issue-deadlines'><span>Special Issues Select</span></a></p><p><a href='https://link.springer.com/journal/145'><strong><span>Journal of Cryptology</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://link.springer.com/journal/145/updates'><span>Special Issues Select</span></a></p><h3 id='网络与信息安全-b类'><span>网络与信息安全 B类</span></h3><p><a href='https://dl.acm.org/journal/tops'><strong><span>ACM Transactions on Privacy and Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://dl.acm.org/journal/tops/about'><span>Special Issues Select</span></a></p><p><a href='https://www.sciencedirect.com/journal/computers-and-security'><strong><span>Computers &amp; Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://www.sciencedirect.com/journal/computers-and-security/special-issues'><span>Special Issues Select</span></a></p><p><a href='https://link.springer.com/journal/10623'><strong><span>Designs, Codes and Cryptography</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://link.springer.com/journal/10623/updates'><span>Special Issues Select</span></a></p><p><a href='https://www.iospress.com/catalog/journals/journal-of-computer-security'><strong><span>Journal of Computer Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://www.iospress.com/catalog/journals/journal-of-computer-security'><span>Special Issues Select</span></a></p><h3 id='网络与信息安全-c类'><span>网络与信息安全 C类</span></h3><p><a href='https://www.sciencedirect.com/journal/computer-law-and-security-review'><strong><span>Computer Law &amp; Security Review</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://www.sciencedirect.com/journal/computer-law-and-security-review/about/call-for-papers'><span>Special Issues Select</span></a></p><p><a href='https://jis-eurasipjournals.springeropen.com/'><strong><span>EURASIP Journal on Information Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://jis-eurasipjournals.springeropen.com/articles/collections'><span>Special Issues Select</span></a></p><p><a href='https://ietresearch.onlinelibrary.wiley.com/journal/17518717'><strong><span>IET Information Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://ietresearch.onlinelibrary.wiley.com/hub/journal/17518717/homepage/cfp'><span>Special Issues Select</span></a></p><p><a href='https://www.emeraldgrouppublishing.com/journal/ics'><strong><span>Information and Computer Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://www.emeraldgrouppublishing.com/journal/ics'><span>Special Issues Select</span></a></p><p><a href='https://dl.acm.org/journal/ijics'><strong><span>International Journal of Information and Computer Security</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://dl.acm.org/journal/ijics'><span>Special Issues Select</span></a></p><p><a href='https://www.igi-global.com/journal/international-journal-information-security-privacy/1096'><strong><span>International Journal of Information Security and Privacy</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://www.igi-global.com/journal/international-journal-information-security-privacy/1096'><span>Special Issues Select</span></a></p><p><a href='https://www.sciencedirect.com/journal/journal-of-information-security-and-applications'><strong><span>Journal of Information Security and Applications</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://www.sciencedirect.com/journal/journal-of-information-security-and-applications/about/call-for-papers'><span>Special Issues Select</span></a></p><p><a href='https://www.hindawi.com/journals/scn/'><strong><span>Security and Communication Networks</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://www.hindawi.com/journals/scn/'><span>Special Issues Select</span></a></p><p><a href='https://cybersecurity.springeropen.com/'><strong><span>Cybersecurity</span></strong></a><strong><span>:</span></strong><span> </span><a href='https://cybersecurity.springeropen.com/'><span>Special Issues Select</span></a></p><h2 id='useful-links'><span>Useful links</span></h2><ul><li><p><a href='https://www.ccf.org.cn/Academic_Evaluation/By_category/'><span>CCF推荐国际学术刊物目录</span></a></p></li><li><p><a href='https://signalprocessingsociety.org/publications-resources/special-issue-deadlines'><span>IEEE Signal Processing Society</span></a></p></li><li><p><a href='https://www.computer.org/publications/author-resources/calls-for-papers'><span>IEEE Computer Society</span></a></p></li><li><p><a href='https://www.comsoc.org/publications/magazines'><span>IEEE ComSoc</span></a></p></li><li><p><a href='https://www.sciencedirect.com/browse/calls-for-papers'><span>Elsevier Science Direct</span></a></p></li><li><p><a href='http://www.wikicfp.com/cfp/'><span>WikiCFP</span></a></p></li></ul></div></div>
+</body>
+</html>
